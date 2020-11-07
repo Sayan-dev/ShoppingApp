@@ -15,6 +15,8 @@ const Button = ({
     uppercase=false,
     roundness=10,
     margin=5,
+    alignItems="center",
+    marginHorizontal,
     ...props
 }) => {
     const theme=useTheme();
@@ -27,8 +29,10 @@ const Button = ({
             color={theme.colors.primary}
             uppercase={uppercase}  
             theme={{...theme,roundness}}
-            style={{borderColor:theme.colors.primary,marginVertical:margin}}
+            style={{borderColor:theme.colors.primary,marginVertical:margin,marginHorizontal}}
+            
             {...props}
+
             >
             {props.children}
         </RNPButton>

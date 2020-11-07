@@ -59,7 +59,7 @@ export default function BottomTab({ state, descriptors, navigation }) {
             accessibilityRole="button"
             accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
-            testID={options.tabBarTestID}
+    
             onPress={onPress}
             onLongPress={onLongPress}
             style={{ flex: 1,alignItems:'center',padding:5,justifyContent:"center",borderBottomColor:theme.colors.primary,borderBottomWidth:isFocused?3:0}}

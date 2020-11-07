@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Text, Title } from 'react-native-paper';
+import { Paragraph, Text, Title } from 'react-native-paper';
 import { View } from 'react-native';
 import Button from '../../commons/Button/Button';
 import { useTheme } from '@react-navigation/native';
 import { ThemeContext } from '../../../contexts/theme';
 import { AuthContext } from '../../../contexts/authContext';
+import Switch from '../../commons/Switch/Switch';
 
 const SettingsScreen = props => {
     const theme=useTheme();
@@ -22,15 +23,14 @@ const SettingsScreen = props => {
       auth.logout()
     }
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Settings Screen</Text>
-        <Button
-          roundness={50}
-          margin={10}
-          onPress={() => handleClick()}
-        >
-           Change Mode: {darkMode.isDarkModeOn?'Dark':'Light'}
-        </Button>
+        <View style={{ flex: 1,alignItems: 'center', justifyContent: 'space-between' }}>
+
+          <View style={{flexDirection:"row",alignItems:"center",width:"90%",justifyContent:"space-between"}}>
+            <Text>
+            Change Mode: {darkMode.isDarkModeOn?'Dark':'Light'}
+            </Text>
+             <Switch value={darkMode.isDarkModeOn} onValueChange={()=>handleClick()} />
+          </View>
         <Button
           margin={10}
           roundness={50}

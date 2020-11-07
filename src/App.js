@@ -29,14 +29,14 @@ export default function App() {
   }
   // const {token,login,logout,userId,imgId}= useAuth();
   const [isLogged,setIsLogged]=useState(false);
-  const login=()=>{
+  const [userName,setUserName]=useState("");
+  const login=(name)=>{
     setIsLogged(true)
+    setUserName(name)
   }
   const logout=()=>{
     setIsLogged(false)
   }
-
-
 
 
   return (
@@ -52,6 +52,7 @@ export default function App() {
                       // token:token,
                       // userId:userId,
                       // imgId:imgId, 
+                      userName:userName,
                       login: login, 
                       logout: logout
                     

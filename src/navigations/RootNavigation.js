@@ -4,6 +4,7 @@ import { AuthContext } from '../contexts/authContext';
 import { createStackNavigator } from '@react-navigation/stack';
 import AppNavigation from './AppNavigation/AppNavigation'
 import AuthNavigation from './AuthNavigation/AuthNavigation';
+import MainNavigation from './AppNavigation/MainNavigation';
 
 
 const RootNavigation = ({
@@ -22,7 +23,7 @@ const RootNavigation = ({
                     ?
                     <Stack.Screen 
                         name="App" 
-                        component={AppNavigation} 
+                        component={MainNavigation} 
                         options={{
                             headerShown:false
                         }}

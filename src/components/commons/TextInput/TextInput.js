@@ -5,13 +5,14 @@ import { theme } from '../../../styles/theme';
 
 const TextInput = ({
     theme,
+    fontSize=14,
     ...props
 }) => {
     
     return (
         <RNPTextInput
   
-            style={{marginVertical:5,borderBottomWidth:2,borderBottomColor:theme.colors.primary}}
+            style={{fontWeight:"400",marginVertical:5,borderBottomWidth:1,fontSize,borderBottomColor:theme.colors.primary,backgroundColor:"rgba(0,0,0,0)"}}
             {...props}
         />
     );
