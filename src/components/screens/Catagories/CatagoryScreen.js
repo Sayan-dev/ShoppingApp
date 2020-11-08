@@ -9,7 +9,7 @@ const CatagoryScreen = props => {
     return (
         <ScrollView contentContainerStyle={{height:"100%",alignItems:"center"}}>
             <CatagoryHead/>
-            <Catagories/>
+            <Catagories {...props}/>
         </ScrollView>
     );
 };

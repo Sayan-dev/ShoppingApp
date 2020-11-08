@@ -4,17 +4,18 @@ import { View } from 'react-native';
 import { Text } from 'react-native-paper';
 import { catagoryCards } from '../../../constants/catagoryConstants';
 import Catagory from './Catagory/Catagory';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Catagories = props => {
     const catagories=catagoryCards
     return (
-        <View style={{width:"100%",flexDirection:"row",flexWrap:"wrap"}}>
+        <ScrollView contentContainerStyle={{width:"100%",flexDirection:"row",flexWrap:"wrap",}}>
             {
                 Object.keys(catagoryCards).map(catagory=>{
-                    return <Catagory catagory={catagoryCards[catagory]} />
+                    return <Catagory {...props} catagory={catagoryCards[catagory]} />
                 })
             }
-        </View>
+        </ScrollView>
     );
 };
 

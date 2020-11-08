@@ -10,6 +10,8 @@ const Card = ({
     title=null,
     subtitle=null,
     cover,
+    imageHeight="60%",
+    imageWidth="70%",
     uri,
     Body,
     background,
@@ -30,13 +32,13 @@ const Card = ({
 
             {
                 cover || uri
-                ?<RNPCard.Cover source={uri?{ uri: uri }:cover} />
+                ?<RNPCard.Cover  style={{maxHeight:imageHeight,maxWidth:imageWidth}} source={uri?{ uri: uri }:cover} />
                 :null
                 }
-                        {
+            {
                 Body?
-                <RNPCard.Content>
-                    <Body {...bodyProps}/>
+                <RNPCard.Content >
+                    <Body  {...bodyProps}/>
                 </RNPCard.Content> 
                 
                 :null

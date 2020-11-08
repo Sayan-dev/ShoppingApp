@@ -14,11 +14,13 @@ const Trend = ({
 }) => {
     const theme=useTheme()
     return (
-        <Card style={{width:200,marginHorizontal:5}}
+        <Card style={{alignItems:"center",flexDirection:"column",height:"90%",width:200,marginHorizontal:6}}
             uri={data.uri}
+            imageHeight="70%"
+            imageWidth="100%"
             Body={
-                ()=><View style={{width:"102%",flexDirection:"row",alignItems:"center"}}>
-                <View style={{width:"70%"}}>
+                ()=><View style={{width:"100%",marginHorizontal:0,flexDirection:"row",alignItems:"center"}}>
+                <View style={{width:"80%"}}>
                 <Title >
                     {excessHideForCardNames(9,data.name)}
                 </Title>
@@ -27,7 +29,7 @@ const Trend = ({
                     </Text>            
 
                 </View>
-                <View style={{width:"30%",alignItems:"flex-end"}}>
+                <View style={{width:"20%",alignItems:"flex-end"}}>
                     <IconButton
                     color={theme.colors.primary}
                     size={24}
