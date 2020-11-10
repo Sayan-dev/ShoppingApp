@@ -2,22 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from '../../../../commons/Card/Card';
 import {Colors, Paragraph, Text, Title, useTheme } from 'react-native-paper';
-import { View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import Button from '../../../../commons/Button/Button';
 import IconButton from '../../../../commons/IconButton/IconButton';
 import { excessHideForCardNames } from '../../../../../helpers/general';
 
 const Trend = ({
     data,
+    handleCardClick=()=>{},
     likedHandler,
     ...props
 }) => {
     const theme=useTheme()
+
     return (
-        <Card style={{alignItems:"center",flexDirection:"column",height:"90%",width:200,marginHorizontal:6}}
+        <TouchableOpacity onPress={()=>handleCardClick(data)}>
+            <Card style={{alignItems:"center",flexDirection:"column",height:"100%",width:200,marginHorizontal:6}}
+            
             uri={data.uri}
-            imageHeight="70%"
-            imageWidth="100%"
+            imageHeight="74%"
+            imageWidth="75%"
+            coverMargin={15}
             Body={
                 ()=><View style={{width:"100%",marginHorizontal:0,flexDirection:"row",alignItems:"center"}}>
                 <View style={{width:"80%"}}>
@@ -50,6 +55,9 @@ const Trend = ({
 
         
         />
+
+        </TouchableOpacity>
+        
     );
 };
 

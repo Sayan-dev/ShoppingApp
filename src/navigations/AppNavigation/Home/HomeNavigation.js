@@ -7,6 +7,7 @@ import IconButton from '../../../components/commons/IconButton/IconButton';
 import HomeHead from '../../../components/layouts/Home/HomeHead';
 import { useTheme } from 'react-native-paper';
 import HomeCatagory from '../../../components/layouts/HomeCatagory/HomeCatagory';
+import CardDescription from '../../../components/layouts/Description/CardDescription';
 
 const HomeNavigation = ({navigation,...props}) => {
     const Stack = createStackNavigator();
@@ -78,6 +79,7 @@ const HomeNavigation = ({navigation,...props}) => {
             }
             }
             />
+            <Stack.Screen name="DescriptionScreen" key="cardDescription" component={CardDescription}/>
         </Stack.Navigator>
     );
 };

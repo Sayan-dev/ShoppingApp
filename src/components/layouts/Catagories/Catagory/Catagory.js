@@ -11,7 +11,7 @@ const Catagory = ({catagory,...props}) => {
     return (
         <TouchableOpacity 
             onPress={handlePressCatagory}
-            style={{width:"42%",margin:10,height:"40%"}}
+            style={{width:"42%",margin:10,height:200}}
         >
             <Card
                 key={catagory.name}

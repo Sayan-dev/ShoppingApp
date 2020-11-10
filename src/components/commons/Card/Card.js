@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card as RNPCard, Paragraph, Title, useTheme} from 'react-native-paper';
 import Button from '../Button/Button';
-import { ImageBackground } from 'react-native';
+import { Image, ImageBackground } from 'react-native';
 
 
 
@@ -13,6 +13,7 @@ const Card = ({
     imageHeight="60%",
     imageWidth="70%",
     uri,
+    coverMargin=0,
     Body,
     background,
     bodyProps,
@@ -32,7 +33,7 @@ const Card = ({
 
             {
                 cover || uri
-                ?<RNPCard.Cover  style={{maxHeight:imageHeight,maxWidth:imageWidth}} source={uri?{ uri: uri }:cover} />
+                ?<Image resizeMode={`cover`}  style={{flexDirection: 'column',marginLeft:coverMargin,flex:1,backgroundColor:"#fff",maxHeight:imageHeight,maxWidth:imageWidth}} source={uri?{ uri: uri }:cover} />
                 :null
                 }
             {

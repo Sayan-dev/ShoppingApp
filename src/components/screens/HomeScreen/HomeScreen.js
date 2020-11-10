@@ -11,7 +11,7 @@ import { ThemeContext } from '../../../contexts/theme';
 import HomeHeader from '../../layouts/Home/HomeHeader';
 import Trends from '../../layouts/Home/Trends/Trends';
 
-const HomeScreen = props => {
+const HomeScreen = ({navigation,...props}) => {
     const theme=useTheme();
     const [brandsList,setBrandList]=useState(
       {
@@ -55,8 +55,8 @@ const HomeScreen = props => {
       {
         "13521056782234":{
             id:"13521056782234",
-            name:"Nikkon Cool",
-            uri:"https://static.bhphoto.com/images/images1500x1500/1594281159_1573879.jpg",
+            name:"Lenovo Laptop",
+            uri:"https://static.digit.in/default/9c79c8e9855529b683ce0793dfbbb36f2ac51ed1.jpeg?tr=1200",
             price:48.88,
             catagory:"trends",
             liked:false
@@ -64,8 +64,8 @@ const HomeScreen = props => {
         },
         "13521124234":{
             id:"13521124234",
-            name:"Nikkon Lol",
-            uri:"https://static.bhphoto.com/images/images1500x1500/1594281159_1573879.jpg",
+            name:"Samsung TV",
+            uri:"https://hnsfpau.imgix.net/5/images/detailed/95/UA32N5300ASXNZ-1.jpg?fit=fill&bg=0FFF&w=1500&h=1000&auto=format,compress",
       
             price:48.88,
             catagory:"trends",
@@ -119,9 +119,9 @@ const HomeScreen = props => {
           style={{backgroundColor:theme.colors.background}}>
 
           <HomeHeader {...props}/>
-           <Trends likedHandler={likedHandler} key="brands" list={brandsList} title="For You"/>
+           <Trends navigation={navigation} likedHandler={likedHandler} key="brands" list={brandsList} title="For You"/>
            
-           <Trends likedHandler={likedHandler} key="trends" list={trendlist}/>
+           <Trends navigation={navigation} likedHandler={likedHandler} key="trends" list={trendlist}/>
 
        
         </ScrollView>
