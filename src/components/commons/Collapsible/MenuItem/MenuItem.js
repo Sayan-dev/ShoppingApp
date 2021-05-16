@@ -1,21 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {Text, View} from 'react-native';
 
-const MenuItem = ({
-    handlePressItem,
-    name,
-    iconName,
-
-}) => {
-    return (
-        <View>
-            <Text>{name}</Text>
-        </View>
-    );
+const MenuItem = ({handlePressItem, name, iconName}) => {
+  return (
+    <View>
+      <Text>{name}</Text>
+    </View>
+  );
 };
 
-MenuItem.propTypes = {
-    
-};
+MenuItem.propTypes = {};
 
 export default MenuItem;

@@ -1,26 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { TextInput as RNPTextInput } from 'react-native-paper';
-import { theme } from '../../../styles/theme';
+import {TextInput as RNPTextInput} from 'react-native-paper';
 
-const TextInput = ({
-    theme,
-    fontSize=14,
-    ...props
-}) => {
-    
-    return (
-        <RNPTextInput
-  
-            style={{fontWeight:"400",marginVertical:5,borderBottomWidth:1,fontSize,borderBottomColor:theme.colors.primary,backgroundColor:"rgba(0,0,0,0)"}}
-            {...props}
-        />
-    );
+const TextInput = ({theme, fontSize = 14, ...props}) => {
+  return (
+    <RNPTextInput
+      style={textInputStyle(theme.colors.primary, fontSize)}
+      {...props}
+    />
+  );
 };
 
-
-TextInput.propTypes = {
-    
+const textInputStyle = (borderBottomColor, fontSize) => {
+  return {
+    fontWeight: '400',
+    marginVertical: 5,
+    borderBottomWidth: 1,
+    fontSize,
+    borderBottomColor: borderBottomColor,
+    backgroundColor: 'rgba(0,0,0,0)',
+  };
 };
+
+TextInput.propTypes = {};
 
 export default TextInput;

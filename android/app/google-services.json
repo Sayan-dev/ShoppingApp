@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "174065855244",
+    "firebase_url": "https://locad-d8379.firebaseio.com",
+    "project_id": "locad-d8379",
+    "storage_bucket": "locad-d8379.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174065855244:android:e1655acf58cebc83a2b729",
+        "android_client_info": {
+          "package_name": "com.locadapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174065855244-cneue1dihp564fp1lhnmt0j7kq5tr9sn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.locadapp",
+            "certificate_hash": "7a639397bdc1c297c43dd19a2d7b6b6d42a1100e"
+          }
+        },
+        {
+          "client_id": "174065855244-37hr8tva41ldjdnp61l26epc01kjq42f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxLjKmZxaDCWYLBMdGzhXoQLqz94fwWGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174065855244-37hr8tva41ldjdnp61l26epc01kjq42f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

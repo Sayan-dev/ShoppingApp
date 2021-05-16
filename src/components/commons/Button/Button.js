@@ -1,49 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-import { Button as RNPButton, TouchableRipple } from 'react-native-paper';
-import { useTheme } from 'react-native-paper';
-
-import { styledBy } from '../../../helpers/styleFunction';
-import { red400 } from '../../../styles/colors';
-
-
+import {Button as RNPButton} from 'react-native-paper';
+import {useTheme} from 'react-native-paper';
 const Button = ({
-    dark=true,
-    mode='contained',
-    uppercase=false,
-    roundness=10,
-    margin=5,
-    alignItems="center",
-    marginHorizontal,
-    ...props
+  dark = true,
+  mode = 'contained',
+  uppercase = false,
+  roundness = 10,
+  margin = 5,
+  alignItems = 'center',
+  marginHorizontal,
+  ...props
 }) => {
-    const theme=useTheme();
+  const theme = useTheme();
 
-    return (
-
-        <RNPButton 
-            mode={mode}
-            dark={dark}  
-            color={theme.colors.primary}
-            uppercase={uppercase}  
-            theme={{...theme,roundness}}
-            style={{borderColor:theme.colors.primary,marginVertical:margin,marginHorizontal}}
-            
-            {...props}
-
-            >
-            {props.children}
-        </RNPButton>
-
-    );
+  return (
+    <RNPButton
+      mode={mode}
+      dark={dark}
+      color={theme.colors.primary}
+      uppercase={uppercase}
+      theme={{...theme, roundness}}
+      style={{
+        borderColor: theme.colors.primary,
+        marginVertical: margin,
+        marginHorizontal,
+      }}
+      {...props}>
+      {props.children}
+    </RNPButton>
+  );
 };
 
-
-
 Button.propTypes = {
-    props:PropTypes.object
+  props: PropTypes.object,
 };
 
 export default Button;

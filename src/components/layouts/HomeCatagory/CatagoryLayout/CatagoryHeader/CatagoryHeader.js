@@ -1,22 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { ImageBackground, View } from 'react-native';
-import { Text } from 'react-native-paper';
+import {ImageBackground, StyleSheet, View} from 'react-native';
 
-const CatagoryHeader = ({route,...props}) => {
-    return (
-        <View style={{height:"30%",alignItems:"center",justifyContent:"center",}}>
-            <ImageBackground source={{uri:route.params.headerImage}} style={{width:"100%",height:"100%"}}>
-                
-            </ImageBackground>
-            </View>
-
-
-    );
+const CatagoryHeader = ({route, ...props}) => {
+  return (
+    <View style={styles.catagoryHeader}>
+      <ImageBackground
+        source={{uri: route.params.headerImage}}
+        style={styles.catagoryHeaderImage}
+      />
+    </View>
+  );
 };
 
-CatagoryHeader.propTypes = {
-    
-};
+const styles = StyleSheet.create({
+  catagoryHeader: {
+    height: '30%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  catagoryHeaderImage: {width: '100%', height: '100%'},
+});
+
+CatagoryHeader.propTypes = {};
 
 export default CatagoryHeader;

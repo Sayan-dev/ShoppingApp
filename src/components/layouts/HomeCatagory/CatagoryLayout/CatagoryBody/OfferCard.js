@@ -1,18 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Card from '../../../../commons/Card/Card';
 
-const OfferCard = props => {
-    return (
-        <Card
-
-        
-        />
-    );
+const OfferCard = (props) => {
+  return <Card />;
 };
 
-OfferCard.propTypes = {
-    
-};
+OfferCard.propTypes = {};
 
 export default OfferCard;

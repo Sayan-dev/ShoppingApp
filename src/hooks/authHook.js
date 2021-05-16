@@ -1,50 +1,65 @@
-import { useState, useCallback, useEffect } from 'react';
+import {useState, useCallback, useEffect} from 'react';
+import {getFromAS, removeFromAS, saveInAS} from '../helpers/service';
+import auth from '@react-native-firebase/auth';
 
-let logoutTimer;
+export const useAuth = () => {
+  // const [token, setToken] = useState();     //Will be changed to false
+  // const [tokenExpire,setTokenExpire]=useState();
+  // const [userId,setUserId]=useState(null);
+  // const [imgId,setImgId]=useState(null);
+  const [initializing, setInitializing] = useState(true);
 
-export const useAuth=()=>{
-const [token, setToken] = useState();     //Will be changed to false
-const [tokenExpire,setTokenExpire]=useState();
-const [userId,setUserId]=useState(null);
-const [imgId,setImgId]=useState(null);
+  const [user, setUser] = useState();
 
+  const login = useCallback((userData) => {
+    setUser(userData);
+    // const tokenExpireTime=expireTime || new Date(new Date().getTime()+1000*60*60);
+    // setTokenExpire(tokenExpireTime);
+    saveInAS('userData', JSON.stringify(userData));
+  }, []);
 
+  const logout = useCallback(() => {
+    // setToken(null);
+    // setTokenExpire(null);
+    // setUserId(null);
+    // setImgId(null);
 
-const login = useCallback((uId,imgId,token,expireTime) => {
-  setToken(token);
-  setUserId(uId);
-  setImgId(imgId);
-  const tokenExpireTime=expireTime || new Date(new Date().getTime()+1000*60*60);
-  setTokenExpire(tokenExpireTime);
-  localStorage.setItem(
-    'userData',
-    JSON.stringify({userId:uId,imgId:imgId,token:token,expires:tokenExpireTime.toISOString()})
-  );
-}, []);
+    setUser(null);
+    removeFromAS('userData');
+  }, []);
+  // useEffect(()=>{
+  //   if(token && tokenExpire){
+  //     const remainingTime=tokenExpire.getTime()-new Date().getTime();
+  //     logoutTimer=setTimeout(logout,remainingTime);
+  //   }else{
+  //     clearTimeout(logoutTimer);
+  //   }
+  // },[token,logout,tokenExpire]);
 
-const logout = useCallback(() => {
-  setToken(null);
-  setTokenExpire(null);
-  setUserId(null);
-  setImgId(null);
-  localStorage.removeItem('userData');
+  useEffect(() => {
+    // console.log("Async",getFromAS('userData'))
+    let data;
+    const getUserData = async () => {
+      data = await getFromAS('userData');
+      // console.log('data', data);
+      return data;
+    };
+    getUserData();
 
-}, []);
-useEffect(()=>{
-  if(token && tokenExpire){
-    const remainingTime=tokenExpire.getTime()-new Date().getTime();
-    logoutTimer=setTimeout(logout,remainingTime);
-  }else{
-    clearTimeout(logoutTimer);
-  }
-},[token,logout,tokenExpire]);
+    const onAuthStateChanged = (userData) => {
+      if (initializing) {
+        setInitializing(false);
+      }
+      login(userData);
+      setUser(userData);
+    };
 
-
-useEffect(()=>{
-  const storedData=JSON.parse(localStorage.getItem('userData'));
-  if(storedData && storedData.token && new Date(storedData.expires) > new Date()){
-    login(storedData.userId,storedData.imgId,storedData.token,new Date(storedData.expires))
-  }
-},[login]);
-    return {token,login,logout,userId,imgId};
-}
+    if (data) {
+      console.log('data', data);
+      login(data);
+    }
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber;
+  }, [login, initializing]);
+  return {user, initializing, login, logout};
+};

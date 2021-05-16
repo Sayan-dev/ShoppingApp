@@ -1,20 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import UserInfo from './UserInfo/UserInfo';
-import { View } from 'react-native';
-import { red400 } from '../../../../styles/colors';
+import {StyleSheet, View} from 'react-native';
 import DrawerBody from './DrawerBody/DrawerBody';
 
-const DrawerIndex = props => {
-    return (
-        <View style={{margin:0,height:"100%",justifyContent:"flex-start"}}>
-            <DrawerBody {...props}/>
-        </View>
-    );
+const DrawerIndex = (props) => {
+  return (
+    <View style={styles.drawerIndex}>
+      <DrawerBody {...props} />
+    </View>
+  );
 };
 
-DrawerIndex.propTypes = {
-    
-};
+const styles = StyleSheet.create({
+  drawerIndex: {margin: 0, height: '100%', justifyContent: 'flex-start'},
+});
+
+DrawerIndex.propTypes = {};
 
 export default DrawerIndex;
